@@ -9,7 +9,7 @@ export type NavLink = {
  * any small note, then the account menu on the right. Sticky, translucent, one hairline underneath.
  * No state, so it renders on the server.
  */
-export declare function AppHeader({ wordmark, homeHref, homeLabel, nav, linkAs: Anchor, children, }: {
+export declare function AppHeader({ wordmark, homeHref, homeLabel, nav, linkAs: Anchor, navRow, children, }: {
     /** Usually <Wordmark name="…" />. */
     wordmark: ReactNode;
     homeHref?: string;
@@ -18,6 +18,8 @@ export declare function AppHeader({ wordmark, homeHref, homeLabel, nav, linkAs: 
     nav?: NavLink[];
     /** The app's router link (e.g. Next's Link), used for the home link and nav, so they navigate client-side. */
     linkAs?: ElementType;
+    /** Many sections: below 900px the nav gets its own scrolling row under the wordmark and the menu. */
+    navRow?: boolean;
     /** The right-hand end: notes, then <AccountMenu> last. */
     children?: ReactNode;
 }): import("react").JSX.Element;

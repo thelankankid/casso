@@ -19,7 +19,7 @@
 </head>
 <body>
 <!-- The plain-HTML header, for apps without React (no build step). Same classes the React parts render. -->
-<header class="casso-header">
+<header class="casso-header casso-header--nav-row">
   <div class="casso-header__inner">
     <a class="casso-header__home" href="#" aria-label="Atlas home">
       <span class="casso-wordmark" role="img" aria-label="atlas"><span aria-hidden="true">atlas</span></span>
@@ -28,7 +28,11 @@
       <nav class="casso-nav" aria-label="Main">
         <a class="casso-nav__link" href="#" aria-current="page">Status</a>
         <a class="casso-nav__link" href="#">Alerts</a>
+        <a class="casso-nav__link" href="#">Checks</a>
+        <a class="casso-nav__link" href="#">Dashboards</a>
+        <a class="casso-nav__link" href="#">History</a>
       </nav>
+      <span class="casso-chip casso-chip--ok">dev</span>
       <details class="casso-account" open>
         <summary aria-label="Account menu"><span class="casso-avatar" style="width:36px;height:36px;font-size:15px">S</span></summary>
         <div class="casso-menu">
@@ -54,7 +58,7 @@
 </header>
 <main>
   <div class="card"><b>Tokens</b><p class="muted">Surface on background, muted text, one radius family.</p>
-    <span class="chip ok">Operational</span> <span class="chip warn">Degraded</span> <span class="chip bad">Down</span></div>
+    <span class="casso-chip casso-chip--ok">Operational</span> <span class="casso-chip casso-chip--warn">Degraded</span> <span class="casso-chip casso-chip--bad">Down</span> <span class="casso-chip">Unknown</span></div>
 </main>
 <script src="../dist/account-menu.js"></script>
 </body>

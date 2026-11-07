@@ -1,6 +1,6 @@
 {
   "name": "@thelankankid/casso",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A small shared look for a family of web apps: principles, design tokens, the app header and account menu.",
   "license": "MIT",
   "private": true,
@@ -20,7 +20,8 @@
     "dist"
   ],
   "sideEffects": [
-    "*.css"
+    "*.css",
+    "./dist/account-menu.js"
   ],
   "scripts": {
     "build": "node scripts/build.mjs",
