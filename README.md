@@ -45,6 +45,18 @@ import { AppHeader, AccountMenu, Wordmark } from "@thelankankid/casso";
 - `AppHeader` takes `nav={[{ href, label, current }]}` for the app's own links and any other children (such as
   `<HeaderNote>`) before the menu.
 
+### Signed out, chips, buttons and fields
+
+- `<SignInCard wordmark chip lead back>` is the signed-out screen every app shares: a quiet centred card with the
+  wordmark, an optional chip, one line of context, the actions (children) and a way back. In plain HTML it's
+  `.casso-signin` > `.casso-signin__card` ([`demo/signin.html`](demo/signin.html)).
+- `<Chip tone="ok|warn|bad">` (`.casso-chip`, `--ok`/`--warn`/`--bad`) is a small worded label, e.g. an environment
+  ("production") or a state. Always a word, never colour alone.
+- Buttons are `.casso-btn` pills: `--primary` for the one main action, `--quiet` for the rest, `--block` for full
+  width. Fields are `.casso-field` > `.casso-field__label` + `.casso-field__input` (+ `.casso-field__error`).
+- `<AppHeader navRow>` is for apps with many sections: below 900px the nav gets its own scrolling row under the
+  wordmark and the menu.
+
 ### Tokens
 
 `tokens.css` defines `--casso-*` variables for both themes: `bg`, `surface`, `line`, `text`, `muted`, `hover`,

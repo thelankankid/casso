@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casso sign-in demo</title>
+<link rel="stylesheet" href="../dist/casso.css">
+<style>body { margin: 0; }</style>
+</head>
+<body>
+<!-- The signed-out screen, in plain HTML. The React <SignInCard> renders the same markup. -->
+<main class="casso-signin">
+  <div class="casso-signin__card">
+    <div class="casso-signin__head">
+      <span class="casso-wordmark" role="img" aria-label="atlas"><span aria-hidden="true">atlas</span></span>
+      <span class="casso-chip casso-chip--bad">production</span>
+    </div>
+    <p class="casso-signin__lead">Sign in to the site manager.</p>
+    <div class="casso-signin__body">
+      <a class="casso-btn casso-btn--primary casso-btn--block" href="#">Continue with Google</a>
+      <details>
+        <summary class="casso-btn casso-btn--quiet casso-btn--block">Use the admin password</summary>
+        <form style="display:grid;gap:12px;margin-top:12px" onsubmit="return false">
+          <label class="casso-field"><span class="casso-field__label">Password</span><input class="casso-field__input" type="password"></label>
+          <button class="casso-btn casso-btn--block" type="submit">Log in</button>
+        </form>
+      </details>
+    </div>
+    <div class="casso-signin__foot"><a href="#">Back to the site</a></div>
+  </div>
+</main>
+</body>
+</html>

@@ -216,3 +216,128 @@
 .casso-menu__item > svg { flex: none; color: var(--casso-muted); }
 .casso-menu__label { display: block; font-size: 14px; }
 .casso-menu__hint { display: block; margin-top: 1px; font-size: 12px; color: var(--casso-muted); }
+
+/* ── Second nav row ───────────────────────────────────────────────────────
+ * For apps with many sections (<AppHeader navRow>): below 900px the nav leaves the header row and gets its own
+ * scrolling row underneath, so the wordmark and the account menu keep their places. */
+@media (max-width: 899px) {
+  .casso-header--nav-row .casso-header__inner {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 56px;
+    row-gap: 0;
+  }
+  .casso-header--nav-row .casso-header__home { order: 1; margin-right: auto; min-height: 56px; }
+  .casso-header--nav-row .casso-header__end { display: contents; }
+  .casso-header--nav-row .casso-header__end > * { order: 2; }
+  .casso-header--nav-row .casso-header__end > * + * { margin-left: 8px; }
+  .casso-header--nav-row .casso-header__end > .casso-nav {
+    order: 3;
+    flex-basis: 100%;
+    margin: 0 -4px;
+    padding-bottom: 8px;
+  }
+}
+
+/* ── Avatar photo set by script ───────────────────────────────────────────
+ * An app that swaps the Google photo in after load puts an <img> inside span.casso-avatar; it fills the circle. */
+.casso-avatar > img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Chip ─────────────────────────────────────────────────────────────────
+ * A small worded label: an environment ("production"), a state ("Operational"). Always a word, never colour alone. */
+.casso-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 9px;
+  border-radius: 999px;
+  background: var(--casso-selected);
+  color: var(--casso-muted);
+  font: 600 12px/1 var(--casso-font);
+  white-space: nowrap;
+}
+.casso-chip--ok { background: var(--casso-ok-soft); color: var(--casso-ok); }
+.casso-chip--warn { background: var(--casso-warn-soft); color: var(--casso-warn); }
+.casso-chip--bad { background: var(--casso-bad-soft); color: var(--casso-bad); }
+
+/* ── Buttons and fields ───────────────────────────────────────────────────
+ * Pill buttons: primary (ink on paper, inverted) for the one main action, quiet for the rest. */
+.casso-btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--casso-selected);
+  color: var(--casso-text);
+  font: 500 14px/1 var(--casso-font);
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.15s, background 0.15s;
+}
+a.casso-btn:hover { text-decoration: none; }
+summary.casso-btn { list-style: none; }
+summary.casso-btn::-webkit-details-marker { display: none; }
+.casso-btn:hover { background: var(--casso-hover); }
+.casso-btn:focus-visible { outline: 2px solid var(--casso-text); outline-offset: 2px; }
+.casso-btn:disabled { opacity: 0.5; cursor: default; }
+.casso-btn--primary { background: var(--casso-text); color: var(--casso-bg); }
+.casso-btn--primary:hover { background: var(--casso-text); opacity: 0.88; }
+.casso-btn--quiet { background: none; color: var(--casso-muted); }
+.casso-btn--quiet:hover { background: var(--casso-hover); color: var(--casso-text); }
+.casso-btn--block { width: 100%; }
+
+.casso-field { display: block; font-family: var(--casso-font); }
+.casso-field__label { display: block; margin-bottom: 6px; font-size: 13px; color: var(--casso-muted); }
+.casso-field__input {
+  width: 100%;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: var(--casso-radius);
+  background: var(--casso-selected);
+  color: var(--casso-text);
+  font: 15px/1.3 var(--casso-font);
+  box-sizing: border-box;
+}
+.casso-field__input:focus { outline: none; border-color: var(--casso-muted); }
+.casso-field__error { margin-top: 6px; font-size: 13px; color: var(--casso-bad); }
+
+/* ── Sign-in card ─────────────────────────────────────────────────────────
+ * The signed-out screen every app shares: a quiet centred card with the wordmark, an optional chip, one line of
+ * context, the primary action, any secondary option, and a way back. */
+.casso-signin {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: start center;
+  padding: 18vh 16px 32px;
+  box-sizing: border-box;
+  background: var(--casso-bg);
+  color: var(--casso-text);
+  font-family: var(--casso-font);
+}
+.casso-signin__card {
+  width: 100%;
+  max-width: 22.5rem;
+  padding: 28px 24px 22px;
+  border-radius: var(--casso-radius-xl);
+  background: var(--casso-surface);
+  box-sizing: border-box;
+}
+.casso-signin__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 30px; }
+.casso-signin__lead { margin: 10px 0 18px; font-size: 14px; color: var(--casso-muted); }
+.casso-signin__body { display: grid; gap: 12px; }
+.casso-signin__foot { margin-top: 18px; text-align: center; font-size: 13px; }
+.casso-signin__foot a { color: var(--casso-muted); text-decoration: none; }
+.casso-signin__foot a:hover { color: var(--casso-text); text-decoration: none; }

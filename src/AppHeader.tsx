@@ -13,6 +13,7 @@ export function AppHeader({
   homeLabel,
   nav,
   linkAs: Anchor = "a",
+  navRow = false,
   children,
 }: {
   /** Usually <Wordmark name="…" />. */
@@ -23,11 +24,13 @@ export function AppHeader({
   nav?: NavLink[];
   /** The app's router link (e.g. Next's Link), used for the home link and nav, so they navigate client-side. */
   linkAs?: ElementType;
+  /** Many sections: below 900px the nav gets its own scrolling row under the wordmark and the menu. */
+  navRow?: boolean;
   /** The right-hand end: notes, then <AccountMenu> last. */
   children?: ReactNode;
 }) {
   return (
-    <header className="casso-header">
+    <header className={navRow ? "casso-header casso-header--nav-row" : "casso-header"}>
       <div className="casso-header__inner">
         <Anchor className="casso-header__home" href={homeHref} aria-label={homeLabel}>
           {wordmark}

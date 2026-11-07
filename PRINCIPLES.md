@@ -25,6 +25,9 @@ family. When an app breaks a rule, either fix the app or change the rule here.
   then the app's own items, then "Sign out" with "Of <app> and your other apps" under it, because the session
   is shared. Use `AccountMenu`.
 - **No email or "Sign out" text in the header.** That lives in the menu.
+- **The signed-out screen.** One quiet centred card: the wordmark (and a chip such as the environment), one line
+  saying what you're signing in to, the main action as the primary button, any other way in as a quiet option, and
+  a way back. Use `SignInCard`.
 
 ## Wordmarks
 
