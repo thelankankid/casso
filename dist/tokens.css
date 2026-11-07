@@ -1,0 +1,74 @@
+/* Casso design tokens: the colours, type, radii and elevation every app on Casso shares.
+ *
+ * Dark is the default. Light follows the system, and an app can pin either with
+ * <html data-theme="light|dark">. Apps map their own variables onto these (e.g. --bg: var(--casso-bg))
+ * rather than redefining them, so a change here reaches every app on its next bump. */
+
+:root {
+  color-scheme: dark;
+  --casso-bg: #0e0e10;
+  --casso-surface: #18181b;
+  --casso-line: #2b2b31;
+  --casso-text: #f5f4f1;
+  --casso-muted: #9b9a96;
+  --casso-hover: rgb(245 244 241 / 0.06);
+  --casso-selected: rgb(155 154 150 / 0.12);
+  --casso-shadow: 0 16px 40px -12px rgb(0 0 0 / 0.55);
+
+  /* Status: always shown with a word next to the colour, never colour alone. */
+  --casso-ok: #3fbf74;
+  --casso-ok-soft: #12291c;
+  --casso-warn: #f0a83a;
+  --casso-warn-soft: #2e2311;
+  --casso-bad: #f2645c;
+  --casso-bad-soft: #351616;
+
+  /* One typeface. Apps self-host Inter (next/font, @fontsource) and may point this at it. */
+  --casso-font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --casso-radius-sm: 0.5rem;
+  --casso-radius: 0.75rem;
+  --casso-radius-lg: 1rem;
+  --casso-radius-xl: 1.5rem;
+
+  /* Page width for the header and content column. */
+  --casso-max: 64rem;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+    --casso-bg: #f7f6f4;
+    --casso-surface: #ffffff;
+    --casso-line: #e4e2dd;
+    --casso-text: #1b1b1f;
+    --casso-muted: #6f6e6a;
+    --casso-hover: rgb(27 27 31 / 0.05);
+    --casso-selected: rgb(27 27 31 / 0.07);
+    --casso-shadow: 0 16px 40px -14px rgb(27 27 31 / 0.18);
+    --casso-ok: #1f8a4c;
+    --casso-ok-soft: #e3f4ea;
+    --casso-warn: #b26a00;
+    --casso-warn-soft: #fdf1dc;
+    --casso-bad: #c62828;
+    --casso-bad-soft: #fde6e6;
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --casso-bg: #f7f6f4;
+  --casso-surface: #ffffff;
+  --casso-line: #e4e2dd;
+  --casso-text: #1b1b1f;
+  --casso-muted: #6f6e6a;
+  --casso-hover: rgb(27 27 31 / 0.05);
+  --casso-selected: rgb(27 27 31 / 0.07);
+  --casso-shadow: 0 16px 40px -14px rgb(27 27 31 / 0.18);
+  --casso-ok: #1f8a4c;
+  --casso-ok-soft: #e3f4ea;
+  --casso-warn: #b26a00;
+  --casso-warn-soft: #fdf1dc;
+  --casso-bad: #c62828;
+  --casso-bad-soft: #fde6e6;
+}

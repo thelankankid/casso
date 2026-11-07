@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casso demo</title>
+<link rel="stylesheet" href="../dist/casso.css">
+<style>
+  body { margin: 0; background: var(--casso-bg); color: var(--casso-text); font-family: var(--casso-font); }
+  main { max-width: var(--casso-max); margin: 0 auto; padding: 24px 16px; }
+  @media (min-width: 640px) { main { padding: 24px 32px; } }
+  .card { background: var(--casso-surface); border-radius: var(--casso-radius-xl); padding: 20px; margin-bottom: 16px; }
+  .muted { color: var(--casso-muted); }
+  .chip { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .ok { background: var(--casso-ok-soft); color: var(--casso-ok); }
+  .warn { background: var(--casso-warn-soft); color: var(--casso-warn); }
+  .bad { background: var(--casso-bad-soft); color: var(--casso-bad); }
+</style>
+</head>
+<body>
+<!-- The plain-HTML header, for apps without React (no build step). Same classes the React parts render. -->
+<header class="casso-header">
+  <div class="casso-header__inner">
+    <a class="casso-header__home" href="#" aria-label="Atlas home">
+      <span class="casso-wordmark" role="img" aria-label="atlas"><span aria-hidden="true">atlas</span></span>
+    </a>
+    <div class="casso-header__end">
+      <nav class="casso-nav" aria-label="Main">
+        <a class="casso-nav__link" href="#" aria-current="page">Status</a>
+        <a class="casso-nav__link" href="#">Alerts</a>
+      </nav>
+      <details class="casso-account" open>
+        <summary aria-label="Account menu"><span class="casso-avatar" style="width:36px;height:36px;font-size:15px">S</span></summary>
+        <div class="casso-menu">
+          <div class="casso-menu__who">
+            <span class="casso-avatar" style="width:44px;height:44px;font-size:18px">S</span>
+            <div><div class="casso-menu__name">Alex Rivera</div><div class="casso-menu__email">someone@example.com</div></div>
+          </div>
+          <div class="casso-menu__sep"></div>
+          <div class="casso-menu__group">
+            <a class="casso-menu__item" href="#"><span><span class="casso-menu__label">Settings</span><span class="casso-menu__hint">Who can see Atlas</span></span></a>
+          </div>
+          <div class="casso-menu__sep"></div>
+          <div class="casso-menu__group">
+            <form method="post" action="#"><button class="casso-menu__item" type="button">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+              <span><span class="casso-menu__label">Sign out</span><span class="casso-menu__hint">Of Atlas and your other apps</span></span>
+            </button></form>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="card"><b>Tokens</b><p class="muted">Surface on background, muted text, one radius family.</p>
+    <span class="chip ok">Operational</span> <span class="chip warn">Degraded</span> <span class="chip bad">Down</span></div>
+</main>
+<script src="../dist/account-menu.js"></script>
+</body>
+</html>

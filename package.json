@@ -1,0 +1,43 @@
+{
+  "name": "@thelankankid/casso",
+  "version": "0.3.0",
+  "description": "A small shared look for a family of web apps: principles, design tokens, the app header and account menu.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "repository": "github:thelankankid/casso",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./casso.css": "./dist/casso.css",
+    "./tokens.css": "./dist/tokens.css",
+    "./components.css": "./dist/components.css",
+    "./account-menu.js": "./dist/account-menu.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm run build && git diff --exit-code -- dist"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.18",
+    "react": "19.2.9",
+    "typescript": "5.9.3"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  }
+}
