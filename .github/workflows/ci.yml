@@ -1,0 +1,20 @@
+name: CI
+
+# The shared checks (thelankankid/ci).
+# node: npm ci, npm run check (typecheck, build, dist/ is current), npm audit of runtime deps.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  node:
+    uses: thelankankid/ci/.github/workflows/node-ci.yml@e431cf62d380e9e65aa147ce5e4734abf674bcde # v1
+    with:
+      audit-level: low # the old CI failed on any advisory; keep that
+  # actionlint, every action pinned to a SHA, gitleaks.
+  hygiene:
+    uses: thelankankid/ci/.github/workflows/hygiene.yml@e431cf62d380e9e65aa147ce5e4734abf674bcde # v1
